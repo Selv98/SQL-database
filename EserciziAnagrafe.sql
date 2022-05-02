@@ -14,3 +14,8 @@ select Città.Nome
 From Città join Persona on Persona.CittàNascita=Città.Nome 
 where Persona.Età>=50
 
+/* query4 */
+Select distinct P.Figlio as Nipote, N.Genitore as Nonno
+From Genia P, Genia N
+Where P.Genitore=N.Figlio
+
