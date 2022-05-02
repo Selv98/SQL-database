@@ -13,3 +13,4 @@ Where PG.CittàNascita = PF.CittàNascita
 select Città.Nome
 From Città join Persona on Persona.CittàNascita=Città.Nome 
 where Persona.Età>=50
+
