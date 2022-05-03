@@ -37,7 +37,7 @@ from Autore join Programmatore on Autore.codice= Programmatore.codice
 group by Autore.codice, Programma.anno
 
 /* Query 7 */
-select Programma.linguaggio,count(Autore.codice)
+select Programma.linguaggio,count(Autore.codice/Programma.id)
 from Autore join Programmatore on Autore.codice= Programmatore.codice
     join Programma  on Autore.id=Programma.id
 group by Programma.linguaggio
