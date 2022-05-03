@@ -23,3 +23,9 @@ select Programmatore.codice, programmatore.nome
 from Autore join Programmatore on Autore.codice= Programmatore.codice
     join Programma  on Autore.id=Programma.id
 where Programma.linguaggio= "Java"
+
+/* Query 7 */
+select Programma.linguaggio,count(Autore.codice)
+from Autore join Programmatore on Autore.codice= Programmatore.codice
+    join Programma  on Autore.id=Programma.id
+group by Programma.linguaggio
