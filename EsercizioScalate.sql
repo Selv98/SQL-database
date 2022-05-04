@@ -11,6 +11,14 @@ where Scalatore.annoNascita<1980
 group by Scalatore.CF, Nazione.continente
 order by Nazione.continente
 
+/* Query 3 non mi escono risultati perchè non ci sono scalatori minorenni*/
+select Scalata.Nazione, Nazione.continente, count(Scalata.Scalatore)
+from Scalata join Scalatore on Scalata.Scalatore= Scalatore.CF
+    join Nazione on Scalata.Nazione= Nazione.nome
+where Scalatore.annoNascita>18 
+group by Nazione.Nome, Nazione.continente
+having count(Scalata.Scalatore) <=1
+
 /* Query 4 */
 select Nazione.nome, count(Scalata.Scalatore) as TotScalate
 from Scalata join Scalatore on Scalata.Scalatore= Scalatore.CF
