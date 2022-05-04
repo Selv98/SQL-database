@@ -17,3 +17,9 @@ from Scalata join Scalatore on Scalata.Scalatore= Scalatore.CF
     join Nazione on Scalata.Nazione= Nazione.nome
 where Scalata.Nazione= Scalatore=nazioneNascita
 group by Nazione.nome
+
+/* Query 6 */
+select Scalatore.CF, Scalatore.nazioneNascita, Nazione.continente as ContinenteNascita, Scalata.nazione as nazioneScalata
+from Scalata join Scalatore on Scalata.Scalatore= Scalatore.CF
+    join Nazione on Scalata.Nazione= Nazione.nome
+where Nazione.continente != "America" and Scalata.Scalatore is not null
