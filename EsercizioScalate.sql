@@ -23,3 +23,9 @@ select Scalatore.CF, Scalatore.nazioneNascita, Nazione.continente as ContinenteN
 from Scalata join Scalatore on Scalata.Scalatore= Scalatore.CF
     join Nazione on Scalata.Nazione= Nazione.nome
 where Nazione.continente != "America" and Scalata.Scalatore is not null
+
+/* Query 8 */
+select Scalata.nazione, count(Scalata.scalatore)/Scalata.anno as media
+from Scalata join Scalatore on scalata.scalatore=Scalatore.cf
+where scalatore.nazioneNascita != Scalata.nazione
+group by Scalata.nazione
