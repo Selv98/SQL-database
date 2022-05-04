@@ -10,3 +10,10 @@ from Scalata join Scalatore on Scalata.Scalatore= Scalatore.CF
 where Scalatore.annoNascita<1980
 group by Scalatore.CF, Nazione.continente
 order by Nazione.continente
+
+/* Query 4 */
+select Nazione.nome, count(Scalata.Scalatore) as TotScalate
+from Scalata join Scalatore on Scalata.Scalatore= Scalatore.CF
+    join Nazione on Scalata.Nazione= Nazione.nome
+where Scalata.Nazione= Scalatore=nazioneNascita
+group by Nazione.nome
