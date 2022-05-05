@@ -44,3 +44,12 @@ select Scalata.nazione, count(Scalata.scalatore)/Scalata.anno as media
 from Scalata join Scalatore on scalata.scalatore=Scalatore.cf
 where scalatore.nazioneNascita != Scalata.nazione
 group by Scalata.nazione
+
+/* Query 9 */
+select Scalatore.*
+from Scalatore join scalata on scalatore.cf = scalata.scalatore
+where Scalatore.nazioneNascita in
+    (select Scalata.nazione
+    from Scalata
+    where (Scalata.anno- Scalatore.annoNascita)<18
+    )
