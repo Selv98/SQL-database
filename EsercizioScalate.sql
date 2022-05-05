@@ -15,7 +15,7 @@ order by Nazione.continente
 select Scalata.Nazione, Nazione.continente, count(Scalata.Scalatore)
 from Scalata join Scalatore on Scalata.Scalatore= Scalatore.CF
     join Nazione on Scalata.Nazione= Nazione.nome
-where Scalatore.annoNascita>18 
+where (Scalata.anno - Scalatore.annoNascita)>18 
 group by Nazione.Nome, Nazione.continente
 having count(Scalata.Scalatore) <=1
 
@@ -40,7 +40,7 @@ having count(Scalata.scalatore) > 1
 order by scalata.anno
 
 /* Query 8 */
-select Scalata.nazione, count(Scalata.scalatore)/Scalata.anno as media
+select Scalata.nazione, count(Scalata.scalatore)/count(distinct Scalata.anno) as media
 from Scalata join Scalatore on scalata.scalatore=Scalatore.cf
 where scalatore.nazioneNascita != Scalata.nazione
 group by Scalata.nazione
