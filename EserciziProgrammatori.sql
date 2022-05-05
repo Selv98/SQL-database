@@ -24,11 +24,20 @@ from Programma join Autore a1 on Programma.id= a1.id
     join Autore a2 on Programma.id= a2.id
 where Programma.linguaggio= "Python" and a1.codice != a2.codice and a1.codice > a2.codice
 
-/* Query 5 */
+/* Query 5 vecchia */
 select Programmatore.codice, programmatore.nome
 from Autore join Programmatore on Autore.codice= Programmatore.codice
     join Programma  on Autore.id=Programma.id
 where Programma.linguaggio= "Java"
+
+/* Query 5 nuova */
+select Programmatore.codice, programmatore.nome
+from Autore join Programmatore on Autore.codice= Programmatore.codice
+    join Programma  on Autore.id=Programma.id
+where Programma.linguaggio in 
+    (select Programma.linguaggio
+        from Programma 
+        where programma.linguaggio = "java")
 
 /* Query 6 */
 select Autore.codice, Programma.anno, count(Programma.id)
